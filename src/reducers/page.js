@@ -1,6 +1,6 @@
 import { NEXT_PAGE, PREV_PAGE, FIRST_PAGE, LAST_PAGE } from '../actions/page';
 
-export function page(state = 1, action) {
+export default function page(state = 1, action) {
     switch (action.type) {
         case NEXT_PAGE:
         case PREV_PAGE:

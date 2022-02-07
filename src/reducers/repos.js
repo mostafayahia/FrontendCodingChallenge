@@ -1,6 +1,6 @@
-import { SET_REPOS } from '../actions/repos'
+import { SET_REPOS, UNSET_REPOS } from '../actions/repos'
 
-export function repos(state = [], action) {
+export default function repos(state = [], action) {
     switch (action.type) {
         case SET_REPOS:
             return [...action.repos];
