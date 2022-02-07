@@ -6,33 +6,45 @@ export const FIRST_PAGE = 'FIRST_PAGE';
 export const LAST_PAGE = 'LAST_PAGE';
 
 export function nextPage(currentPage) {
+    const newPage = currentPage < PAGES_NUM ? currentPage + 1 : currentPage;
+
+    // todo: dispatch update repos actions
+
     return {
         type: NEXT_PAGE,
-        page: currentPage < PAGES_NUM ? currentPage + 1 : currentPage,
-        updated: currentPage < PAGES_NUM
+        page: newPage,
     };
 }
 
 export function prevPage(currentPage) {
+    const newPage = currentPage === 1 ? currentPage : currentPage - 1;
+
+    // todo: dispatch update repos actions
+
     return {
         type: PREV_PAGE,
-        page: currentPage === 1 ? currentPage : currentPage - 1,
-        update: currentPage !== 1
+        page: newPage,
     };
 }
 
 export function lastPage(currentPage) {
+    const newPage = PAGES_NUM;
+
+    // todo: dispatch update repos actions
+
     return {
         type: LAST_PAGE,
-        page: PAGES_NUM,
-        updated: currentPage !== PAGES_NUM
+        page: newPage
     }
 }
 
 export function firstPage(currentPage) {
+    const newPage = 1;
+
+    // todo: dispatch update repos actions
+    
     return {
         type: FIRST_PAGE,
-        page: 1,
-        updated: currentPage !== 1
+        page: newPage
     }
 }
