@@ -15,3 +15,18 @@ function _formatDate(date) {
     return `${yyyy}-${(mm < 10 ? "0" : "") + mm}-${(dd < 10 ? "0" : "") + dd}`;
     
 }
+
+export function formateRepos(repos) {
+    if (repos && repos.length > 0) {
+        return repos.map(repo => ({
+            id: repo.id,
+            name: repo.name,
+            ownerAvatar: repo.owner.avatar_url,
+            ownerName: repo.owner.login,
+            description: repo.description,
+            stars: repo.stargazers_count,
+            issues: repo.open_issues_count,
+        }));
+    } 
+    return [];
+}
