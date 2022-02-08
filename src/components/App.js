@@ -31,7 +31,7 @@ class App extends Component {
 
 function mapStateToProps({ repos, page }) {
   return {
-    loading: !repos || repos.length == 0,
+    loading: JSON.stringify(repos) === "{}",
     page,
   }
 }

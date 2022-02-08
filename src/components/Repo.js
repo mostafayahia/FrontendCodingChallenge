@@ -17,7 +17,7 @@ class Repo extends Component {
 
 function mapStateToProps({ repos }, { id }) {
     return {
-        repo: repos.filter(repo => repo.id === id)[0]
+        repo: repos[id],
     }
 }
 

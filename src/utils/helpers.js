@@ -17,8 +17,10 @@ function _formatDate(date) {
 }
 
 export function formatRepos(repos) {
-    if (repos && repos.length > 0) {
-        return repos.map(repo => ({
+    const formattedRepos = {}
+    
+    repos && repos.length > 0 &&  repos.forEach(repo => {
+        formattedRepos[repo.id] = {
             id: repo.id,
             name: repo.name,
             ownerAvatar: repo.owner.avatar_url,
@@ -26,7 +28,8 @@ export function formatRepos(repos) {
             description: repo.description,
             stars: repo.stargazers_count,
             issues: repo.open_issues_count,
-        }));
-    } 
-    return [];
+        }
+    });
+
+    return formattedRepos;
 }

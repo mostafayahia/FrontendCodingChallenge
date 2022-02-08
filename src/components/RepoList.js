@@ -10,7 +10,12 @@ class RepoList extends Component {
 }
 
 function mapStateToProps({ repos }) {
-    return { ids: repos.map(repo => repo.id) };
+    const ids = Object.keys(repos);
+
+    // sorting repos desc according to their stars
+    ids.sort((a, b) => repos[b].stars - repos[a].stars);
+    
+    return { ids, };
 }
 
 export default connect(mapStateToProps)(RepoList);
