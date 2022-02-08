@@ -21,7 +21,7 @@ class Pagination extends Component {
             case FIRST_PAGE:
                 dispatch(firstPage(page));
                 if (page !== 1) {
-                    dispatch(UNSET_REPOS);
+                    dispatch(unsetRepos());
                     dispatch(handleGetRepos(1))
                 }
                 break;
