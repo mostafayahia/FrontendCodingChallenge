@@ -25,7 +25,8 @@ export function handleGetRepos(pageNum) {
             "&per_page=" + REPOS_PER_PAGE;
         
         const response = await fetch(url);
-        const repos = response.items;
+        const body = await response.json();
+        const repos = body.items;
         dispatch(setRepos(repos));
     }
 }
