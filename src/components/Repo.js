@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import RepoOwner from './RepoOwner';
+import RepoDetails from './RepoDetails';
 
 class Repo extends Component {
     render() {
@@ -8,12 +9,7 @@ class Repo extends Component {
         return (
             <div className="repo">
                 <RepoOwner {...repo} />
-                <div className="repo-details">
-                    <p>name: {repo.name}</p>
-                    <p>description: {repo.description}</p>
-                    <p>stars: {repo.stars}</p>
-                    <p>issues: {repo.issues}</p>
-                </div>
+                <RepoDetails {...repo} />
             </div>
         ) 
     }
