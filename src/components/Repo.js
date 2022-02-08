@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import RepoOwner from './RepoOwner';
 
 class Repo extends Component {
     render() {
         const { repo } = this.props;
         return (
             <div className="repo">
-                <div className="repo-owner">
-                    <p>owner avatar: {repo.ownerAvatar}</p>
-                    <p>owner name: {repo.ownerName}</p>
-                </div>
+                <RepoOwner {...repo} />
                 <div className="repo-details">
                     <p>name: {repo.name}</p>
                     <p>description: {repo.description}</p>
