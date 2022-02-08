@@ -16,7 +16,7 @@ function _formatDate(date) {
     
 }
 
-export function formateRepos(repos) {
+export function formatRepos(repos) {
     if (repos && repos.length > 0) {
         return repos.map(repo => ({
             id: repo.id,

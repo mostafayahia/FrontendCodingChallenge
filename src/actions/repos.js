@@ -3,7 +3,7 @@ import {
 } from '../utils/constants'
 
 import {
-    getDateStringAfterDeltaInDays, formateRepos
+    getDateStringAfterDeltaInDays, formatRepos
 } from '../utils/helpers'
 
 export const SET_REPOS = 'SET_REPOS';
@@ -33,7 +33,7 @@ export function handleGetRepos(pageNum) {
         const response = await fetch(url);
         const body = await response.json();
         const repos = body.items;
-        const formattedRepos = formateRepos(repos);
+        const formattedRepos = formatRepos(repos);
         dispatch(setRepos(formattedRepos));
     }
 }
