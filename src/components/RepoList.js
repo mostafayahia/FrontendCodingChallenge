@@ -5,7 +5,7 @@ import Repo from './Repo';
 class RepoList extends Component {
     render() {
         const { ids } = this.props;
-        return ids.map(id => <Repo id={id} />)
+        return ids.map(id => <Repo key={id} id={id} />)
     }
 }
 
