@@ -16,6 +16,12 @@ function setRepos(repos) {
     };
 }
 
+export function unsetRepos() {
+    return {
+        type: UNSET_REPOS,
+    }
+}
+
 export function handleGetRepos(pageNum) {
     return async dispatch => {
         const url = 'https://api.github.com/search/repositories?q=created:%3E' + getDateStringAfterDeltaInDays(DELTA_IN_DAYS) +
