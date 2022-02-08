@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Pagination from './Pagination';
 import { handleGetRepos } from '../actions/repos';
 import { connect } from 'react-redux';
-import Repo from './Repo';
+import RepoList from './RepoList';
 
 class App extends Component {
 
@@ -21,7 +21,7 @@ class App extends Component {
           !loading &&
           <Fragment>
             <Pagination />
-            <Repo id={446601008} />
+            <RepoList />
           </Fragment>
         }
       </div>
