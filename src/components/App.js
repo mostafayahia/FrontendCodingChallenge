@@ -23,6 +23,7 @@ class App extends Component {
           <Fragment>
             <Pagination />
             <RepoList />
+            <Pagination />
           </Fragment>
         }
       </div>
