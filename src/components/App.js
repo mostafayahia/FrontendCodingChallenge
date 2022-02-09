@@ -4,6 +4,7 @@ import { handleGetRepos } from '../actions/repos';
 import { connect } from 'react-redux';
 import RepoList from './RepoList';
 import PropTypes from 'prop-types';
+import LoadingBar from 'react-redux-loading';
 
 class App extends Component {
 
@@ -17,6 +18,9 @@ class App extends Component {
 
     return (
       <div className="container">
+        {
+          loading && <LoadingBar />
+        }
         <h1 className="center">Top Starred Repos in the last 30 days</h1>
         {
           !loading &&
