@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import Repo from './Repo';
 
-class RepoList extends Component {
-    render() {
-        const { ids } = this.props;
-        return ids.map(id => <Repo key={id} id={id} />)
-    }
+function RepoList(props) {
+    const { ids } = props;
+    return ids.map(id => <Repo key={id} id={id} />);
 }
 
 function mapStateToProps({ repos }) {
