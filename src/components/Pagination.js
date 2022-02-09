@@ -3,6 +3,7 @@ import { PAGES_NUM } from '../utils/constants';
 import { connect } from 'react-redux';
 import { handleGetRepos, unsetRepos } from '../actions/repos';
 import { setPage } from '../actions/page';
+import PropTypes from 'prop-types';
 
 const FIRST_PAGE = "FIRST_PAGE";
 const LAST_PAGE = "LAST_PAGE";
@@ -74,5 +75,9 @@ function mapStateToProps({ page }) {
         page,
     }
 }
+
+Pagination.propTypes = {
+    page: PropTypes.number.isRequired,
+};
 
 export default connect(mapStateToProps)(Pagination);

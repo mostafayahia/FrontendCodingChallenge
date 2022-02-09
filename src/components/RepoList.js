@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Repo from './Repo';
+import PropTypes from 'prop-types';
 
 function RepoList(props) {
     const { ids } = props;
@@ -15,6 +16,10 @@ function mapStateToProps({ repos }) {
     
     return { ids, };
 }
+
+RepoList.propTypes = {
+    ids: PropTypes.array.isRequired,
+};
 
 export default connect(mapStateToProps)(RepoList);
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RepoDetails(props) {
     const { name, description, stars, issues } = props;
@@ -13,5 +14,12 @@ function RepoDetails(props) {
         </div>
     )
 }
+
+RepoDetails.propTypes = {
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string,
+    stars: PropTypes.number.isRequired,
+    issues: PropTypes.number.isRequired,
+};
 
 export default RepoDetails;

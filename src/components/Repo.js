@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import RepoOwner from './RepoOwner';
 import RepoDetails from './RepoDetails';
+import PropTypes from 'prop-types';
 
 function Repo(props) {
     
@@ -19,5 +20,9 @@ function mapStateToProps({ repos }, { id }) {
         repo: repos[id],
     }
 }
+
+Repo.propTypes = {
+    repo: PropTypes.object.isRequired,
+};
 
 export default connect(mapStateToProps)(Repo);

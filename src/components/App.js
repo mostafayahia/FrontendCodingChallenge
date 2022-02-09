@@ -3,6 +3,7 @@ import Pagination from './Pagination';
 import { handleGetRepos } from '../actions/repos';
 import { connect } from 'react-redux';
 import RepoList from './RepoList';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 
@@ -35,5 +36,10 @@ function mapStateToProps({ repos, page }) {
     page,
   }
 }
+
+App.propTypes = {
+  page: PropTypes.number.isRequired,
+  loading: PropTypes.bool.isRequired,
+};
 
 export default connect(mapStateToProps)(App);

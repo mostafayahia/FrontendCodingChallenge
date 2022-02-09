@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 function RepoOwner(props) {
     const { ownerAvatar, ownerName } = props;
@@ -9,5 +10,10 @@ function RepoOwner(props) {
         </div>
     );
 }
+
+RepoOwner.propTypes = {
+    ownerAvatar: PropTypes.string.isRequired,
+    ownerName: PropTypes.string.isRequired
+};
 
 export default RepoOwner;
