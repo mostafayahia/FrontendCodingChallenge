@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { PAGES_NUM } from '../utils/constants';
 import { connect } from 'react-redux';
-import { firstPage, lastPage, nextPage, prevPage } from '../actions/page';
-import { UNSET_REPOS, handleGetRepos, unsetRepos } from '../actions/repos';
+import { handleGetRepos, unsetRepos } from '../actions/repos';
+import { setPage } from '../actions/page';
 
 const FIRST_PAGE = "FIRST_PAGE";
 const LAST_PAGE = "LAST_PAGE";
@@ -18,35 +18,42 @@ class Pagination extends Component {
         const { dispatch, page } = this.props;
         
         switch (name) {
-            case FIRST_PAGE:
-                dispatch(firstPage(page));
-                if (page !== 1) {
-                    dispatch(unsetRepos());
-                    dispatch(handleGetRepos(1))
-                }
-                break;
             case LAST_PAGE:
-                dispatch(lastPage(page));
                 if (page !== PAGES_NUM) {
-                    dispatch(unsetRepos());
-                    dispatch(handleGetRepos(PAGES_NUM))
+                    const newPage = PAGES_NUM;
+                    dispatch(setPage(newPage));
+                    this.dispatchUpdateReposActions(newPage);
                 }
                 break;
             case NEXT_PAGE:
-                dispatch(nextPage(page));
                 if (page < PAGES_NUM) {
-                    dispatch(unsetRepos());
-                    dispatch(handleGetRepos(page + 1))
+                    const newPage = page + 1;
+                    dispatch(setPage(newPage));
+                    this.dispatchUpdateReposActions(newPage);
                 }
                 break;
             case PREV_PAGE:
-                dispatch(prevPage(page));
                 if (page !== 1) {
-                    dispatch(unsetRepos());
-                    dispatch(handleGetRepos(page - 1))
+                    const newPage = page - 1;
+                    dispatch(setPage(newPage));
+                    this.dispatchUpdateReposActions(newPage);
+                }
+                break;
+            case FIRST_PAGE:
+            default:
+                if (page !== 1) {
+                    const newPage = 1;
+                    dispatch(setPage(newPage));
+                    this.dispatchUpdateReposActions(newPage);
                 }
                 break;
         }
+    }
+
+    dispatchUpdateReposActions(pageNum) {
+        const { dispatch } = this.props;
+        dispatch(unsetRepos());
+        dispatch(handleGetRepos(pageNum));
     }
 
     render() {
